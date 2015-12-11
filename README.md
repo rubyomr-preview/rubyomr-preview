@@ -122,7 +122,7 @@ To start using the Ruby+OMR Technology Preview:
     http://docs.docker.com/engine/installation/
 
 2. Pull the rubyomrpreview image from DockerHub with the command:
-    $ docker pull rubyomrpreview:rubyomrpreview
+    $ docker pull rubyomrpreview/rubyomrpreview
 
 3. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre):
     $ docker run -p 1883:1883 -it rubyomrpreview /bin/bash
