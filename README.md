@@ -125,7 +125,7 @@ To start using the Ruby+OMR Technology Preview:
     $ docker pull rubyomrpreview/rubyomrpreview
 
 3. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre):
-    $ docker run -p 1883:1883 -it rubyomrpreview/rubyorpreview /bin/bash
+    $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
 
 4. Verify you can run Ruby+OMR Technology Preview:
     $ ruby --version
