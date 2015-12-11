@@ -61,11 +61,11 @@ point, with new GC, JIT compiler, and method profiling capabilities. It's not a 
 running Rails applications. We cannot claim it is ready for use in production, but we think it's good
 enough to be able to meet the goals outlined at the beginning of this document.
 
-We have two talks specifically about our Ruby+OMR proof point at Ruby Kaigi 2015. When those talks go
-online we'll update the links below:
+We have two talks specifically about our Ruby+OMR proof point at Ruby Kaigi 2015. Matthew's talk is
+now on slideshare; When Robert's and Craig's slides go online we'll update the link below:
 
 * Matthew Gaudet at Ruby Kaigi:
-  [Experiments in sharing Java VM technology with CRuby](http://rubykaigi.org/2015/presentations/MattStudies)
+  [Experiments in sharing Java VM technology with CRuby](http://www.slideshare.net/MatthewGaudet/experiments-in-sharing-java-vm-technology-with-cruby)
 
 * Robert Young and Craig Lehmann at Ruby Kaigi:
   [It's dangerous to GC alone. Take this!](http://rubykaigi.org/2015/presentations/youngrw_CraigLehmann)
