@@ -84,7 +84,7 @@ Ruby 2.2.2 (notice the last 2!) as well as a branch called "rubyomr-preview" wit
 commit that includes both the changes needed to integrate OMR into Ruby as well as (sorry) the changes
 that came in Ruby 2.2.3 . Unfortunately, due to some sad accidents, we did not do a careful enough job updating
 our internal repository to 2.2.3 and so 2.2.3 changes and OMR changes mingled. We discovered that issue
-so late that we did not have tie to untangle the commit history in time to deliver this source code for
+so late that we did not have time to untangle the commit history in time to deliver this source code for
 Ruby Kaigi 2015. Instead, we merged those changes together. Hopefully, the mix won't be too hard to
 understand because virtually all the OMR related changes are protected by macros with "OMR" in them.
 Those macros enable us to use configure options to select whether or not to include major components like
