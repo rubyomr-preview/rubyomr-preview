@@ -68,7 +68,7 @@ now on slideshare; When Robert's and Craig's slides go online we'll update the l
   [Experiments in sharing Java VM technology with CRuby](http://www.slideshare.net/MatthewGaudet/experiments-in-sharing-java-vm-technology-with-cruby)
 
 * Robert Young and Craig Lehmann at Ruby Kaigi:
-  [It's dangerous to GC alone. Take this!](http://rubykaigi.org/2015/presentations/youngrw_CraigLehmann)
+  [It's dangerous to GC alone. Take this!](http://www.slideshare.net/craiglehmann/the-omr-gc-talk-ruby-kaigi-2015)
 
 # More about the preview
 
