@@ -22,7 +22,7 @@ since 2005.
 IBM has been distilling the core technology from this JVM to create components that can be used to
 build all kinds of different language runtimes, free from the influence of Java semantics. It hasn’t
 been easy, and we’re still not quite done, but soon these components will become available in an
-open source project at the Eclipse foundation.
+open source project, possibly under the Eclipse foundation.
 
 We are calling this technology “OMR”. You may wonder why IBM is opening up its runtime technology to
 the OMR project. IBM has deep interest in creating truly vibrant cloud and Platform-as-a-Service
