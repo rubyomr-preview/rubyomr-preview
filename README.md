@@ -7,7 +7,11 @@ We are releasing this technology preview for a couple of reasons:
 2. To get feedback on how OMR technology has been integrated into Ruby
 
 Our sincerest hope is that this preview helps us to work with the existing Ruby community to integrate
-those parts of OMR that the Ruby community finds beneficial. But first, you may be wondering…
+those parts of OMR that the Ruby community finds beneficial.
+
+If you can't wait to get started, you can go directly to the <a href="#quickstartguide">Quick Start Guide</a>
+
+Otherwise, you may be wondering…
 
 
 # What is “OMR” ?
@@ -29,18 +33,18 @@ the OMR project. IBM has deep interest in creating truly vibrant cloud and Platf
 (PaaS) environments, where universal access to all sorts of language runtimes must become the new
 normal. This polyglot world means that infrastructure, tools, hardware, and software all need to be
 able to seamlessly work together with a consistent user experience so that developers can choose the
-best language for the job rather than the language with the right compatibilities for the environment.
-If every runtime is implemented differently, the path to this degree of seamlessness will be really
+best language for the job.
+With every runtime implemented differently, the path to this degree of seamlessness will be really
 hard and take a really long time. Plus every new language will also need to go through that same
-arduous ramp-up process. With common runtime components, everyone (including IBM) can all better
-leverage our efforts to make runtimes better, faster, more capable, and more integrated to accelerate
-bringing not just the promise of cloud computing but also the reality that developers should expect
-from a cloud computing environment. We want to make it easier to reach new heights, not just for
-existing language runtimes but even more importantly for the amazing new languages that developers
-have yet to imagine.
+arduous ramp-up process which gets worse as mature runtimes become even more capable. With common
+runtime components, everyone (including IBM) can all better leverage our efforts to make runtimes
+better, faster, more capable, and more integrated to accelerate bringing not just the promise of
+cloud computing but also the reality that developers should expect from a cloud computing environment.
+We want to make it easier to reach new heights, not just for existing language runtimes but even more
+importantly for the amazing new languages that developers have yet to imagine.
 
 If you’d like to hear more about the OMR project, there are currently three presentations you can
-look at on the web:
+watch or read:
 
 * Mark Stoodley’s talk at the JVM Languages Summit in August, 2015:
   [A VM is a VM is a VM: The Secret Path to High Performance Multi-Language Runtimes](https://www.youtube.com/watch?v=kOnyJurioyw)
@@ -105,8 +109,10 @@ turn the JIT compiler on. For example, to activate the JIT compiler technology, 
 you can play around a bit.
 
 For full details on how to activate each OMR component and the various configuration options available
-in this technology preview, please see the User's Guide at our [github project](https://github.com/rubyomr-preview/rubyomr-preview)
+in this technology preview, please see the
+[User’s Guide in the Wiki](https://github.com/rubyomr-preview/rubyomr-preview/wiki) !
 
+<a name="quickstartguide"></a>
 # Quick Start Guide
 
 The following files are in this project:
@@ -121,7 +127,7 @@ To start using the Ruby+OMR Technology Preview:
 
 1. Follow the instructions [here](http://docs.docker.com/engine/installation/)
    if you do not already have docker installed:
-    
+
 
 2. Pull the rubyomrpreview image from DockerHub with the command:
 
@@ -139,8 +145,8 @@ To start using the Ruby+OMR Technology Preview:
 5. Play to your heart's content!
 
 To see how to use the various OMR technologies, please look for Tracing,
-Garbage Collector, and Just In Time (JIT) compiler sections in the User’s
-Guide!
+Garbage Collector, and Just In Time (JIT) compiler sections in the
+[User’s Guide in the Wiki](https://github.com/rubyomr-preview/rubyomr-preview/wiki) !
 
 # We would love to hear your feedback!
 
@@ -151,4 +157,5 @@ We’re excited to finally get into the open with this project, and look forward
 think!
 
 We’re going to use the issue tracking associated with the rubyomr-preview github project to track the
-feedback, so if you’d like to tell or ask us anything, please open an issue from the Issue tab!
+feedback, so if you’d like to tell or ask us anything,
+[please open an issue](https://github.com/rubyomr-preview/rubyomr-preview/issues)
