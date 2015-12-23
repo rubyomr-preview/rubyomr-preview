@@ -1,5 +1,11 @@
 # Introducing the "Ruby + OMR Technology Preview"
 
+ANNOUNCE: We have had to take down our dockerhub project rubyomrpreview. That means the instructions
+in this readme and in the User's Guide (wiki) will no longer work. We're working to get the docker
+image available at another location, but that has not yet happened. We'll post a new announcment
+here when the new download location is available and the instructions have been updated.
+
+
 The OMR team has put this technology preview together to showcase how OMR runtime technology might be integrated into the Ruby VM.
 We are releasing this technology preview for a couple of reasons:
 
