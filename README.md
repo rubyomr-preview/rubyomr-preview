@@ -142,7 +142,7 @@ To start using the Ruby+OMR Technology Preview:
 
 3. Load the docker image locally:
 
-	$ docker load -i rubyomrpreview.tar.gz
+        $ docker load -i rubyomrpreview.tar.gz
 
 4. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre):
 
