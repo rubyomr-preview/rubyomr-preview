@@ -1,10 +1,11 @@
+**Our docker image is available once more! We are currently hosting the image from an IBM Drop account,
+which means we had to modify our <a href="#quickstartguide>instructions</a> a little bit (one modified step
+and one new step), but everyone should now be able to try out the Ruby+OMR Technology Preview (again).
+We'll be making some more updates to the license over the next little while to satisfy our lawyers, but
+the technology is still the same.**
+
+
 # Introducing the "Ruby + OMR Technology Preview"
-
-ANNOUNCE: We have had to take down our dockerhub project rubyomrpreview. That means the instructions
-in this readme and in the User's Guide (wiki) will no longer work. We're working to get the docker
-image available at another location, but that has not yet happened. We'll post a new announcment
-here when the new download location is available and the instructions have been updated.
-
 
 The OMR team has put this technology preview together to showcase how OMR runtime technology might be integrated into the Ruby VM.
 We are releasing this technology preview for a couple of reasons:
@@ -135,20 +136,24 @@ To start using the Ruby+OMR Technology Preview:
    if you do not already have docker installed:
 
 
-2. Pull the rubyomrpreview image from DockerHub with the command:
+2. Download the rubyomrpreview docker image from Box.com with the command:
 
-        $ docker pull rubyomrpreview/rubyomrpreview
+        $ wget https://ibm.box.com/shared/static/lmk2gxjrdyzkh53xyai2cfhegpnhlry3.gz -O rubyomrpreview.tar.gz
 
-3. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre):
+3. Load the docker image locally:
+
+	$ docker load -i rubyomrpreview.tar.gz
+
+4. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre):
 
         $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
 
-4. Verify you can run Ruby+OMR Technology Preview:
+5. Verify you can successfully run Ruby+OMR Technology Preview:
 
-        $ ruby --version
+        root@d2ae8cf89313:/# ruby --version
         ruby 2.2.3p97 (OMR Preview r1)(2015-04-14) [x86_64-linux]
 
-5. Play to your heart's content!
+6. Play to your heart's content!
 
 To see how to use the various OMR technologies, please look for Tracing,
 Garbage Collector, and Just In Time (JIT) compiler sections in the
