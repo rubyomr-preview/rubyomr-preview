@@ -1,5 +1,5 @@
 **Our docker image is available once more! We are currently hosting the image from an IBM Drop account,
-which means we had to modify our <a href="#quickstartguide>instructions</a> a little bit (one modified step
+which means we had to modify our <a href="#quickstartguide">instructions</a> a little bit (one modified step
 and one new step), but everyone should now be able to try out the Ruby+OMR Technology Preview (again).
 We'll be making some more updates to the license over the next little while to satisfy our lawyers, but
 the technology is still the same.**
