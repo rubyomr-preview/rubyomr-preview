@@ -105,7 +105,7 @@ rubyomr-preview branch checked out.
 The OMR technology itself is included only as part of the prebuilt binaries which you can access by
 simply running /usr/local/bin/ruby. Unfortunately, the OMR project is not quite available in the open
 (sorry! we're working on it *really* hard). Once the OMR project goes open, we'll update the image
-o include the OMR source code along with more of the glue code that connects the Ruby VM to OMR.
+to include the OMR source code along with more of the glue code that connects the Ruby VM to OMR.
 
 Not all of the OMR technologies are active by default in this version of Ruby.  Environment variables
 activate those technologies that are not on by default, like the method profiling support when you
