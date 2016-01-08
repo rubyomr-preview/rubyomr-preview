@@ -67,7 +67,7 @@ watch or read:
 
 To make sure the OMR technology really could work in runtimes other than Java, the OMR team has
 been working to create several internal proof points to use the technology with different language
-runtimes (like Ruby!). This technlogy preview release represents the current state of our Ruby proof
+runtimes (like Ruby!). This technology preview release represents the current state of our Ruby proof
 point, with new GC, JIT compiler, and method profiling capabilities. It's not a toy: we've got it
 running Rails applications. We cannot claim it is ready for use in production, but we think it's good
 enough to be able to meet the goals outlined at the beginning of this document.
