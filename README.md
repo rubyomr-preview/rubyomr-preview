@@ -12,6 +12,7 @@ those parts of OMR that the Ruby community finds beneficial.
 Platform support:
 * Ubuntu 15.10 Linux on x86, 64-bit
 * ClefOS 7.1 Linux on Z, 64-bit
+* Ubuntu 14.04 Linux on OpenPower, 64-bit
 
 If you can't wait to get started, you can go directly to the <a href="#quickstartguide">Quick Start Guide</a>
 
@@ -24,7 +25,7 @@ The OMR project is a soon-to-be open source project, initiated by IBM, to develo
 consumable core components for building all kinds of language runtimes, from Java to Ruby to Smalltalk
 and beyond. The initial components come originally from the IBM J9 Java Virtual Machine, an enterprise
 class JVM implementation representing hundreds of person years of development creating scalable, high
-performance runtime technology. It has been the core runtime for the IBM SDK, Java Technlogy Edition,
+performance runtime technology. It has been the core runtime for the IBM SDK, Java Technology Edition,
 since 2005.
 
 IBM has been distilling the core technology from this JVM to create components that can be used to
@@ -69,9 +70,6 @@ point, with new GC, JIT compiler, and method profiling capabilities. It's not a 
 running Rails applications. We cannot claim it is ready for use in production, but we think it's good
 enough to be able to meet the goals outlined at the beginning of this document.
 
-At this point, we have docker images so you can try out the preview on Linux on X86 and Linux on Z (mainframe).
-We're working on a docker image for POWER as well.
-
 We have two talks specifically about our Ruby+OMR proof point at Ruby Kaigi 2015. Matthew's talk is
 now on slideshare; When Robert's and Craig's slides go online we'll update the link below:
 
@@ -86,9 +84,9 @@ now on slideshare; When Robert's and Craig's slides go online we'll update the l
 The preview is based on Ruby 2.2.3, which was the most recently available Ruby version when we
 released it in mid December 2015. We felt that a docker image would be the easiest and most reliable
 way for us to get the technology into people's hands with a minimum of fussing over platform specifics.
-The image we created contains Ubuntu 15.10 (Wily Werewolf) with a preinstalled Ruby 2.2.3 with built-in
-OMR technology. Also included is a monitoring agent which can be used with IBM Health Centre to visualize
-Ruby method profiles and garbage collection performance while your Ruby application is running.
+The image has a preinstalled Ruby 2.2.3 with built-in OMR technology. Also included is a monitoring agent
+which can be used with IBM Health Centre to visualize Ruby method profiles and garbage collection
+performance while your Ruby application is running.
 
 Each docker image includes a git repo located at /home/rubyomr/ruby.  This repo contains the base
 Ruby 2.2.2 (notice the last 2 isn't 3!) as well as a branch called "rubyomr-preview" with a single
@@ -130,52 +128,82 @@ The following files are in this project:
 
 You can also find the [User's Guide in our wiki](https://github.com/rubyomr-preview/rubyomr-preview/wiki).
 
-To start using the Ruby+OMR Technology Preview:
+To start using the Ruby+OMR Technology Preview, please follow the directions for the platform you're using: Linux on X86,
+Linux on Z, or Linux on OpenPOWER.
+
+## Linux on X86, 64-bit
 
 1. If you do not already have docker installed, follow these directions to get started:
 
    [Installing Docker For Linux on x86](http://docs.docker.com/engine/installation/)
 
+2. Download the rubyomrpreview docker image from Box.com with the command:
+
+        $ wget https://ibm.box.com/shared/static/1vlbbf3w6g8usthf91p40m3t1x8hd5hs.tgz -O rubyomrpreview-x86_64.tgz
+
+3. Load the docker image locally:
+
+        $ docker load -i rubyomrpreview-x86_64.tgz
+
+4. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre or if you won't
+   be running the message broker--see the [User's Guide](https://github.com/rubyomr-preview/rubyomr-preview/wiki)-- inside the container):
+
+        $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
+
+5. Verify you can successfully run Ruby+OMR Technology Preview:
+
+        root@d2ae8cf89313:/# ruby --version
+        ruby 2.2.3p97 (OMR Preview r1)(2015-04-14) [x86_64-linux]
+
+6. Play to your heart's content!
+
+## Linux on Z, 64-bit
+
+1. If you do not already have docker installed, follow these directions to get started:
+
    [Installing Docker For Linux on Z](http://www.ibm.com/developerworks/linux/linux390/docker.html)
 
 2. Download the rubyomrpreview docker image from Box.com with the command:
 
-    For Linux on x86:
-
-        $ wget https://ibm.box.com/shared/static/0yxvz73617z7qozkl77h9hbso7rc01fk.tgz -O rubyomrpreview-x86_64.tgz
-
-    For Linux on Z:
-
-        $ wget https://ibm.box.com/shared/static/dklog0bq7m7c1fg5i9crvvcvfevgik20.tgz -O rubyomrpreview-s390x.tgz
+        $ wget https://ibm.box.com/shared/static/1bzikt7fmfdejpvp4zqglnss64tcwls2.tgz -O rubyomrpreview-s390x.tgz
 
 3. Load the docker image locally:
-
-    For Linux on x86:
-
-        $ docker load -i rubyomrpreview-x86_64.tgz
-
-    For Linux on Z:
 
         $ docker load -i rubyomrpreview-s390x.tgz
 
 4. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre or if you won't
    be running the message broker--see the [User's Guide](https://github.com/rubyomr-preview/rubyomr-preview/wiki)-- inside the container):
 
-    For all platforms:
+        $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
+
+5. Verify you can successfully run Ruby+OMR Technology Preview:
+
+        bash-4.2# ruby --version
+        ruby 2.2.3p97 (OMR Preview r1)(2015-04-14) [s390x-linux]
+
+6. Play to your heart's content!
+
+## Linux on OpenPOWER, 64-bit
+
+   [Installing Docker for Linux on OpenPOWER](https://www.ibm.com/developerworks/library/l-docker/)
+
+2. Download the rubyomrpreview docker image from Box.com with the command:
+
+        $ wget https://ibm.box.com/shared/static/hdqgfvvnnq1idf6qvlsv9r0rw5dzwbhc.tgz -O rubyomrpreview-powerpc64le.tgz
+
+3. Load the docker image locally:
+
+        $ docker load -i rubyomrpreview-powerpc64le.tgz
+
+4. Run the docker image (you can omit the -p 1883:1883 if you won't be using Health Centre or if you won't
+   be running the message broker--see the [User's Guide](https://github.com/rubyomr-preview/rubyomr-preview/wiki)-- inside the container):
 
         $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
 
 5. Verify you can successfully run Ruby+OMR Technology Preview:
 
-    For Linux on x86 64-bit:
-
-        root@d2ae8cf89313:/# ruby --version
-        ruby 2.2.3p97 (OMR Preview r1)(2015-04-14) [x86_64-linux]
-
-    For Linux on Z 64-bit:
-
-        bash-4.2# ruby --version
-        ruby 2.2.3p97 (OMR Preview r1)(2015-04-14) [s390x-linux]
+        root@7305793b79e9:/# ruby --version
+        ruby 2.2.3p97 (OMR Preview r1) (2015-04-14) [powerpc64le-linux]
 
 6. Play to your heart's content!
 
