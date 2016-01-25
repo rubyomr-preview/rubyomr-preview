@@ -14,6 +14,9 @@ Platform support:
 * ClefOS 7.1 Linux on Z, 64-bit
 * Ubuntu 14.04 Linux on OpenPower, 64-bit
 
+Our lawyers are keen to tell you that any reference to the Invoice in the License means that you are authorised to
+use one copy of the downloaded image.
+
 If you can't wait to get started, you can go directly to the <a href="#quickstartguide">Quick Start Guide</a>
 
 Otherwise, you may be wondering…
