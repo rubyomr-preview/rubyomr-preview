@@ -24,7 +24,7 @@ Otherwise, you may be wondering…
 
 # What is “OMR” ?
 
-The OMR project is a soon-to-be open source project, initiated by IBM, to develop reusable and easily
+The OMR project is an [open source project](https://github.com/eclipse/omr), initiated by IBM, to develop reusable and easily
 consumable core components for building all kinds of language runtimes, from Java to Ruby to Smalltalk
 and beyond. The initial components come originally from the IBM J9 Java Virtual Machine, an enterprise
 class JVM implementation representing hundreds of person years of development creating scalable, high
@@ -51,18 +51,8 @@ cloud computing but also the reality that developers should expect from a cloud 
 We want to make it easier to reach new heights, not just for existing language runtimes but even more
 importantly for the amazing new languages that developers have yet to imagine.
 
-If you’d like to hear more about the OMR project, there are currently three presentations you can
-watch or read:
-
-* Mark Stoodley’s talk at the JVM Languages Summit in August, 2015:
-  [A VM is a VM is a VM: The Secret Path to High Performance Multi-Language Runtimes](https://www.youtube.com/watch?v=kOnyJurioyw)
-
-* Daryl Maier’s slides from Java One in October, 2015:
-  [Beyond the Coffee Cup: Leveraging Java Runtime Technologies for the Polyglot](http://www.slideshare.net/0xdaryl/javaone-2015-con7547-beyond-the-coffee-cup-leveraging-java-runtime-technologies-for-polyglot?related=1)
-
-* Charlie Gracie’s slides from Java One in October, 2015:
-  [What’s in an Object? Java Garbage Collection for the Polyglot](http://www.slideshare.net/charliegracie1/javaone-whats-in-an-object)
-
+If you’d like to hear more about the OMR project, see [the Github page](https://github.com/eclipse/omr)
+for the project which serves as its home page.  
 
 # So what’s in this Ruby + OMR preview?
 
@@ -104,9 +94,11 @@ the OMR JIT compiler or the OMR Garbage Collector. The git repo in the docker im
 rubyomr-preview branch checked out.
 
 The OMR technology itself is included only as part of the prebuilt binaries which you can access by
-simply running ruby (/usr/local/bin/ruby). Unfortunately, the OMR project is not quite available in the open
-(sorry! we're working on it *really* hard). Once the OMR project goes open, we'll update the image
-to include the OMR source code along with more of the glue code that connects the Ruby VM to OMR.
+simply running ruby (/usr/local/bin/ruby). Unfortunately, whole of the OMR project is not quite available in the open
+(sorry! we're working on it *really* hard).
+
+We plan to  update the image to include the OMR source code along with more of
+the glue code that connects the Ruby VM to OMR.
 
 Not all of the OMR technologies are active by default in this version of Ruby.  Environment variables
 activate those technologies that are not on by default, like the method profiling support when you
