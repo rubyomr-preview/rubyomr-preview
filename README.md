@@ -1,18 +1,22 @@
 # Introducing the "Ruby + OMR Technology Preview"
 
-The OMR team has put this technology preview together to showcase how OMR runtime technology might be integrated into the Ruby VM.
-We are releasing this technology preview for a couple of reasons:
+This technology preview showcases how the [Eclipse OMR project](https://github.com/eclipse/omr) can be integrated
+into the Ruby VM. To do this work, we have now created [Ruby + OMR](https://github.com/rubyomr-preview/ruby) as a
+[Ruby](https://github.com/ruby/ruby) fork. Our intention is to use this fork to contribute Ruby + OMR code changes
+back into Ruby.
 
-1. So that people can try out the OMR technology in Ruby
-2. To get feedback on how OMR technology has been integrated into Ruby
+Our current Ruby + OMR changes are based on Ruby 2.2 and located in the [ruby_2_2_omr](https://github.com/rubyomr-preview/ruby/tree/ruby_2_2_omr) branch. We collapsed our changes into a single commit to showcase the changes needed to incorporate Eclipse OMR into Ruby.
+
+Going forward, we will be working in this fork to update to the master branch with the goal of submitting a pull request
+against Ruby. We are open to feedback at any point on how best to structure the changes we've made or on how to
+best propose these changes into Ruby.
+
+Because we have used some components in the Ruby + OMR Technology Preview that have not yet been open sourced via
+the Eclipse OMR project (for example, the Ruby JIT), we cannot yet include souce code changes for these components.
+But you can continue to try them out via our docker images in this project, and we welcome your feedback!
 
 Our sincerest hope is that this preview helps us to work with the existing Ruby community to integrate
-those parts of OMR that the Ruby community finds beneficial.
-
-Platform support:
-* Ubuntu 15.10 Linux on x86, 64-bit
-* ClefOS 7.1 Linux on Z, 64-bit
-* Ubuntu 14.04 Linux on OpenPower, 64-bit
+those parts of Eclipse OMR that the Ruby community finds beneficial.
 
 Our lawyers are keen to tell you that any reference to the Invoice in the License means that you are authorised to
 use one copy of the downloaded image.
@@ -21,50 +25,53 @@ If you can't wait to get started, you can go directly to the <a href="#quickstar
 
 Otherwise, you may be wondering…
 
-
 # What is “OMR” ?
 
-The OMR project is an [open source project](https://github.com/eclipse/omr), initiated by IBM, to develop reusable and easily
-consumable core components for building all kinds of language runtimes, from Java to Ruby to Smalltalk
-and beyond. The initial components come originally from the IBM J9 Java Virtual Machine, an enterprise
+The [Eclipse OMR project](https://github.com/eclipse/omr) is an open source community growing around
+reusable and easily consumable core components (like thread library, platform abstraction library, garbage
+collector, etc.) for building all kinds of language runtimes, from Java to Ruby to Smalltalk and beyond.
+Many of the components were contributed by IBM from the IBM J9 Java Virtual Machine (JVM), an enterprise
 class JVM implementation representing hundreds of person years of development creating scalable, high
-performance runtime technology. It has been the core runtime for the IBM SDK, Java Technology Edition,
-since 2005.
+performance runtime technology. But going forward, this open project is accepting contributions
+from anyone.
 
-IBM has been distilling the core technology from this JVM to create components that can be used to
-build all kinds of different language runtimes, free from the influence of Java semantics. It hasn’t
-been easy, and we’re still not quite done, but soon these components will become available in an
-open source project, possibly under the Eclipse foundation.
+The OMR components have 3 features that distinguish the Eclipse OMR project from other projects that aim to
+reuse technology for building language runtimes: 1) OMR has no language semantics, 2) OMR is not a
+language runtime, and 3) OMR components can be consumed by any language runtime. The first two features
+distinguish OMR from efforts to implement languages on top of a mature language runtime like the Java Virtual
+Machine (by implementing in Java) or the CoreCLR project (by implementing via CLR bytecodes). Both
+these other efforts require mapping a language's semantics into the semantics of another language (either
+Java or CLR). In contrast, OMR components can be brought into an existing language runtime with its
+own bytecode set and bytecode semantics (or abstract syntax tree semantics). OMR can therefore be
+used to build any kind of language runtime, free from the influence of Java or another language's semantics.
 
-We are calling this technology “OMR”. You may wonder why IBM is opening up its runtime technology to
-the OMR project. IBM has deep interest in creating truly vibrant cloud and Platform-as-a-Service
-(PaaS) environments, where universal access to all sorts of language runtimes must become the new
-normal. This polyglot world means that infrastructure, tools, hardware, and software all need to be
-able to seamlessly work together with a consistent user experience so that developers can choose the
-best language for the job.
-With every runtime implemented differently, the path to this degree of seamlessness will be really
-hard and take a really long time. Plus every new language will also need to go through that same
-arduous ramp-up process which gets worse as mature runtimes become even more capable. With common
-runtime components, everyone (including IBM) can all better leverage our efforts to make runtimes
-better, faster, more capable, and more integrated to accelerate bringing not just the promise of
-cloud computing but also the reality that developers should expect from a cloud computing environment.
-We want to make it easier to reach new heights, not just for existing language runtimes but even more
-importantly for the amazing new languages that developers have yet to imagine.
+One of the most important motivators for the Eclipse OMR project is the increasing importance of cloud computing
+platforms, where the polyglot of programming languages must all cooperate seamlessly in what can really
+be a diverse environment. Language runtimes must be monitored and managed adaptively to adjust to the
+current operating conditions in the cloud platform. But not all runtimes have the same kinds of
+responsiveness built in because most language runtimes today actually share very little technology.
+can hurt or even sabotage longer term success. But every language runtime community needs to go through
+this process, and as existing runtimes become more and more sophisticated, the path to success for new
+languages becomes even more difficult.
 
-If you’d like to hear more about the OMR project, see [the Github page](https://github.com/eclipse/omr)
-for the project which serves as its home page.  
+By introducing shareable core technology components for building all kinds of language runtimes,
+the Eclipse OMR project hopes to both make the process easier for new languages to bootstrap
+themselves as well as to provide mechanisms for existing runtimes to fill gaps or to reduce
+maintenance costs so that communities can focus more of their efforts on the opportunities and
+problems that are specific to their language.
+
+To learn more about the Eclipse OMR project, please visit us at [the Eclipse OMR Github page](https://github.com/eclipse/omr).
 
 # So what’s in this Ruby + OMR preview?
 
-To make sure the OMR technology really could work in runtimes other than Java, the OMR team has
-been working to create several internal proof points to use the technology with different language
+To make sure the Eclipse OMR technology really could work in runtimes other than Java, the OMR team has
+been working to create several proof points to use the technology with different language
 runtimes (like Ruby!). This technology preview release represents the current state of our Ruby proof
 point, with new GC, JIT compiler, and method profiling capabilities. It's not a toy: we've got it
 running Rails applications. We cannot claim it is ready for use in production, but we think it's good
 enough to be able to meet the goals outlined at the beginning of this document.
 
-We have two talks specifically about our Ruby+OMR proof point at Ruby Kaigi 2015. Matthew's talk is
-now on slideshare; When Robert's and Craig's slides go online we'll update the link below:
+We presented talks about our Ruby + OMR proof point at Ruby Kaigi 2015:
 
 * Matthew Gaudet at Ruby Kaigi:
   [Experiments in sharing Java VM technology with CRuby](http://www.slideshare.net/MatthewGaudet/experiments-in-sharing-java-vm-technology-with-cruby)
@@ -72,33 +79,52 @@ now on slideshare; When Robert's and Craig's slides go online we'll update the l
 * Robert Young and Craig Lehmann at Ruby Kaigi:
   [It's dangerous to GC alone. Take this!](http://www.slideshare.net/craiglehmann/the-omr-gc-talk-ruby-kaigi-2015)
 
-# More about the preview
+# Building Ruby + OMR
 
-The preview is based on Ruby 2.2.3, which was the most recently available Ruby version when we
-released it in mid December 2015. We felt that a docker image would be the easiest and most reliable
-way for us to get the technology into people's hands with a minimum of fussing over platform specifics.
-The image has a preinstalled Ruby 2.2.3 with built-in OMR technology. Also included is a monitoring agent
-which can be used with IBM Health Centre to visualize Ruby method profiles and garbage collection
-performance while your Ruby application is running.
+The Eclipse OMR project strives to make it very easy to integrate components into a language runtime.
 
-Each docker image includes a git repo located at /home/rubyomr/ruby.  This repo contains the base
-Ruby 2.2.2 (notice the last 2 isn't 3!) as well as a branch called "rubyomr-preview" with a single
-commit that includes both the changes needed to integrate OMR into Ruby as well as (sorry) the changes
-that came in Ruby 2.2.3 . Unfortunately, due to some sad accidents, we did not do a careful enough job updating
-our internal repository to 2.2.3 and so 2.2.3 changes and OMR changes mingled. We discovered that issue
-so late that we did not have time to untangle the commit history in time to deliver this source code for
-Ruby Kaigi 2015. Instead, we merged those changes together. Hopefully, the mix won't be too hard to
-understand because virtually all the OMR related changes are protected by macros with "OMR" in them.
-Those macros enable us to use configure options to select whether or not to include major components like
-the OMR JIT compiler or the OMR Garbage Collector. The git repo in the docker image has the
-rubyomr-preview branch checked out.
+The Ruby VM needed the following high level sets of changes to incorporate the OMR technology:
+1. configure.in changed to add OMRDIR and OMRGLUE options which default to assume omr in ruby's top directory
+2. makefile.in changed to configure, build, and clean up OMR and OMR Ruby Glue under appropriate targets
+3. makefile.in changed to build and link against OMR and Ruby glue objects and static libraries
+4. various changes to files to invoke the methods in the Ruby glue and OMR project as appropriate
+
+Once these changes were made, the Ruby + OMR Technology Preview release can be built via:
+```
+$ git clone https://github.com/rubyomr-preview/ruby.git --branch ruby_2_2_omr --recursive 
+$ cd ruby
+$ autoconf
+$ ./configure SPEC=<specname>
+$ make
+$ make install
+```
+Since the Ruby + OMR code has only been tested on Linux x86-64, Linux PPC-LE-64, Linux PPC-BE-64
+and Linux 390-64 the acceptable values for `<specname>` are:
+```
+1. linux_x86-64
+2. linux_ppc-64_le_gcc
+3. linux_ppc-64
+4. linux_390-64
+```
+
+Building with this simple sequence of commands will download the latest version of the Ruby + OMR Technology
+Preview and Eclipse OMR, build them together and install them onto your system. That's it!
+
+There are more configuration options than the simple set listed above, which is just a high level
+description. Search for "OMR" and hopefully you'll find the tags we used self explanatory. If not,
+feel free to ask questions!
+
+To make it even easier for people to try out the Ruby + OMR Technology Preview without having to clone
+repositories or build, we also have three docker images available that come with the Ruby + OMR Technology
+Preview already built and pre-installed. Docker images make it easy to avoid fussing with platform
+specifics.  The images have a preinstalled Ruby 2.2.x with built-in OMR technology. Also included is
+a monitoring agent which can be used with IBM Health Centre to visualize Ruby method profiles and garbage
+collection performance while your Ruby application is running.
 
 The OMR technology itself is included only as part of the prebuilt binaries which you can access by
-simply running ruby (/usr/local/bin/ruby). Unfortunately, whole of the OMR project is not quite available in the open
-(sorry! we're working on it *really* hard).
-
-We plan to  update the image to include the OMR source code along with more of
-the glue code that connects the Ruby VM to OMR.
+simply running ruby (/usr/local/bin/ruby). Unfortunately, not all of the OMR project is available in
+the open (we're working on it *really* hard). The real place to look for the most up to date source
+code is at [The Ruby + Eclipse OMR Ruby repo](https://github.com/rubyomr-preview/ruby).
 
 Not all of the OMR technologies are active by default in this version of Ruby.  Environment variables
 activate those technologies that are not on by default, like the method profiling support when you
@@ -110,7 +136,7 @@ you can play around a bit.
 
 For full details on how to activate each OMR component and the various configuration options available
 in this technology preview, please see the
-[User’s Guide in the Wiki](https://github.com/rubyomr-preview/rubyomr-preview/wiki) !
+[User's Guide in the Wiki](https://github.com/rubyomr-preview/rubyomr-preview/wiki) !
 
 <a name="quickstartguide"></a>
 # Quick Start Guide
@@ -123,8 +149,8 @@ The following files are in this project:
 
 You can also find the [User's Guide in our wiki](https://github.com/rubyomr-preview/rubyomr-preview/wiki).
 
-To start using the Ruby+OMR Technology Preview, please follow the directions for the platform you're using: Linux on X86,
-Linux on Z, or Linux on OpenPOWER.
+To start using the Ruby + OMR Technology Preview, please follow the directions for the platform you're using: Linux on X86,
+Linux on Z, or Linux on OpenPOWER. The Linux X86 Docker image has been updated to the latest version and we will be updating the Linux on Z and Linux on OpenPOWER soon.
 
 ## Linux on X86, 64-bit
 
@@ -134,7 +160,7 @@ Linux on Z, or Linux on OpenPOWER.
 
 2. Download the rubyomrpreview docker image from Box.com with the command:
 
-        $ wget https://ibm.box.com/shared/static/1vlbbf3w6g8usthf91p40m3t1x8hd5hs.tgz -O rubyomrpreview-x86_64.tgz
+        $ wget https://ibm.box.com/shared/static/sy7pgu7pqbyht9j3g3tvko77ska1k8x1.tgz -O rubyomrpreview-x86_64.tgz
 
 3. Load the docker image locally:
 
@@ -145,10 +171,10 @@ Linux on Z, or Linux on OpenPOWER.
 
         $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
 
-5. Verify you can successfully run Ruby+OMR Technology Preview:
+5. Verify you can successfully run Ruby + OMR Technology Preview:
 
         root@d2ae8cf89313:/# ruby --version
-        ruby 2.2.3p97 (OMR Preview r1)(2015-04-14) [x86_64-linux]
+        ruby 2.2.5p285 (Eclipse OMR Preview r1) (2016-03-29) [x86_64-linux]
 
 6. Play to your heart's content!
 
@@ -171,7 +197,7 @@ Linux on Z, or Linux on OpenPOWER.
 
         $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
 
-5. Verify you can successfully run Ruby+OMR Technology Preview:
+5. Verify you can successfully run Ruby + OMR Technology Preview:
 
         bash-4.2# ruby --version
         ruby 2.2.3p97 (OMR Preview r1)(2015-04-14) [s390x-linux]
@@ -195,7 +221,7 @@ Linux on Z, or Linux on OpenPOWER.
 
         $ docker run -p 1883:1883 -it rubyomrpreview/rubyomrpreview /bin/bash
 
-5. Verify you can successfully run Ruby+OMR Technology Preview:
+5. Verify you can successfully run Ruby + OMR Technology Preview:
 
         root@7305793b79e9:/# ruby --version
         ruby 2.2.3p97 (OMR Preview r1) (2015-04-14) [powerpc64le-linux]
