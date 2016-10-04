@@ -5,7 +5,8 @@ into the Ruby VM. To do this work, we have now created [Ruby + OMR](https://gith
 [Ruby](https://github.com/ruby/ruby) fork. Our intention is to use this fork to contribute Ruby + OMR code changes
 back into Ruby.
 
-Our current Ruby + OMR changes are based on Ruby 2.2 and located in the [ruby_2_2_omr](https://github.com/rubyomr-preview/ruby/tree/ruby_2_2_omr) branch. We collapsed our changes into a single commit to showcase the changes needed to incorporate Eclipse OMR into Ruby.
+**Our current Ruby + OMR changes are based on Ruby 2.2 and located in the [ruby_2_2_omr](https://github.com/rubyomr-preview/ruby/tree/ruby_2_2_omr)
+branch.** You can build everything from source, or, use the docker images below. 
 
 Going forward, we will be working in this fork to update to the master branch with the goal of submitting a pull request
 against Ruby. We are open to feedback at any point on how best to structure the changes we've made or on how to
@@ -94,7 +95,7 @@ Once these changes were made, the Ruby + OMR Technology Preview release can be b
 $ git clone https://github.com/rubyomr-preview/ruby.git --branch ruby_2_2_omr --recursive 
 $ cd ruby
 $ autoconf
-$ ./configure SPEC=<specname>
+$ ./configure SPEC=<specname> --with-omr-jit
 $ make
 $ make install
 ```
